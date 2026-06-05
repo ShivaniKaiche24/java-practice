@@ -1,0 +1,84 @@
+package com.java_core_practice_day2_collection_framework;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class HashMapDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		 // ── Basic HashMap ──────────────────────────────
+        Map<String, String> jobStatus = new HashMap<>();
+
+        // Put
+        jobStatus.put("Google",      "Applied");
+        jobStatus.put("Mastercard",  "Interview");
+        jobStatus.put("Persistent",  "Rejected");
+        jobStatus.put("TCS",         "Applied");
+        jobStatus.put("Google",      "Selected");  // Key exists → OVERWRITES
+
+        System.out.println(jobStatus);
+        // {Mastercard=Interview, TCS=Applied, Google=Selected, Persistent=Rejected}
+        // ORDER NOT GUARANTEED
+
+        // Get
+        System.out.println(jobStatus.get("Mastercard"));  // Interview
+        System.out.println(jobStatus.get("Amazon"));      // null
+
+        // Get with default
+        String status = jobStatus.getOrDefault("Amazon", "Not Applied");
+        System.out.println(status);  // Not Applied
+
+        // Check key/value exists
+        System.out.println(jobStatus.containsKey("TCS"));      // true
+        System.out.println(jobStatus.containsValue("Rejected")); // true
+
+        // Size
+        System.out.println(jobStatus.size());  // 4
+
+        // Iterate over entries
+        for (Map.Entry<String, String> entry : jobStatus.entrySet()) {
+            System.out.println(entry.getKey() + " → " + entry.getValue());
+        }
+
+        // Iterate keys only
+        for (String company : jobStatus.keySet()) {
+            System.out.println(company);
+        }
+
+        // Remove
+        jobStatus.remove("TCS");
+
+        // ── LinkedHashMap — maintains insertion order ──
+        Map<String, Integer> skillScore = new LinkedHashMap<>();
+        skillScore.put("Java",        90);
+        skillScore.put("Spring Boot", 75);
+        skillScore.put("MySQL",       70);
+        skillScore.put("Docker",      30);
+
+        System.out.println(skillScore);
+        // {Java=90, Spring Boot=75, MySQL=70, Docker=30}
+        // ORDER IS PRESERVED (insertion order)
+
+        // ── TreeMap — sorted by key ────────────────────
+        Map<String, Integer> sortedSkills = new TreeMap<>(skillScore);
+        System.out.println(sortedSkills);
+        // {Docker=30, Java=90, MySQL=70, Spring Boot=75}
+        // SORTED ALPHABETICALLY by key
+
+        // ── CareerFlow use case ───────────────────────
+        // Count how many times each skill appears in job descriptions
+        String jd = "java spring boot java mysql java spring boot docker";
+        Map<String, Integer> skillCount = new HashMap<>();
+
+        for (String word : jd.split(" ")) {
+            skillCount.put(word, skillCount.getOrDefault(word, 0) + 1);
+        }
+        System.out.println(skillCount);
+        // {java=3, spring=2, boot=2, mysql=1, docker=1}
+	}
+
+}

@@ -1,0 +1,31 @@
+package com.java_core_practice_day2_collection_framework;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayListDemo {
+
+	public static void main(String[] args) {
+		//CREATE
+		
+		List<String> skills = new ArrayList<>();
+		
+		//ADD
+		skills.add("Java");
+		skills.add("Spring Boot");
+		skills.add("MySQL");
+		skills.add("React");
+		skills.add("Java");        //Duplicate is allowed in Arraylist
+		
+		System.out.print(skills + "\n");  // we are printing our Arraylist
+		// [Java, Spring Boot, MySQL, React, Java]
+		
+		// 1. Access by index - very fast
+		System.out.println(skills.get(0));
+		System.out.println(skills.get(3));
+		
+		
+
+	}
+
+}

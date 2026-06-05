@@ -1,0 +1,10 @@
+package com.java_core_practice_day2.collection_framework;
+
+public class ArrayList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

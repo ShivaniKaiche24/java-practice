@@ -1,0 +1,16 @@
+package com.java_core_practice_day2_collection_framework;
+
+import java.util.List;
+
+public class ArrayListDemo {
+
+	public static void main(String[] args) {
+		//CREATE
+		
+		List<String> skills = new ArrayListDemo<>();
+		
+		
+
+	}
+
+}

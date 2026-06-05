@@ -1,0 +1,38 @@
+package com.java_core_practice.day2.collection_framework;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class CollectionUtilityDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		 List<Integer> scores = new ArrayList<>();
+	        scores.add(85); scores.add(42); scores.add(90);
+	        scores.add(67); scores.add(55);
+
+	        System.out.println(Collections.max(scores));    // 90
+	        System.out.println(Collections.min(scores));    // 42
+
+	        Collections.sort(scores);
+	        System.out.println(scores);  // [42, 55, 67, 85, 90]
+
+	        Collections.sort(scores, Collections.reverseOrder());
+	        System.out.println(scores);  // [90, 85, 67, 55, 42]
+
+	        Collections.shuffle(scores);  // Random order
+	        System.out.println(scores);
+
+	        // Frequency
+	        List<String> statuses = new ArrayList<>();
+	        statuses.add("Applied"); statuses.add("Rejected");
+	        statuses.add("Applied"); statuses.add("Selected");
+	        statuses.add("Applied");
+
+	        System.out.println(Collections.frequency(statuses, "Applied")); // 3
+	    
+	}
+
+}

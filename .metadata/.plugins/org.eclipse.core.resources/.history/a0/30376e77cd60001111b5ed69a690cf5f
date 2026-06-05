@@ -1,0 +1,57 @@
+package com.java_core_practice_day2_collection_framework;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class HashSetDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// ── HashSet ─────────────────────────────────────
+        Set<String> appliedCompanies = new HashSet<>();
+
+        appliedCompanies.add("Google");
+        appliedCompanies.add("Mastercard");
+        appliedCompanies.add("Google");   // Duplicate — IGNORED silently
+        appliedCompanies.add("Persistent");
+
+        System.out.println(appliedCompanies);
+        // [Persistent, Mastercard, Google]  — no duplicates, no order
+
+        System.out.println(appliedCompanies.contains("Google")); // true
+
+        // ── Find duplicate skills between two JDs ──────
+        Set<String> jd1Skills = new HashSet<>();
+        jd1Skills.add("java"); jd1Skills.add("spring boot");
+        jd1Skills.add("mysql"); jd1Skills.add("docker");
+
+        Set<String> jd2Skills = new HashSet<>();
+        jd2Skills.add("java"); jd2Skills.add("kafka");
+        jd2Skills.add("docker"); jd2Skills.add("kubernetes");
+
+        // Intersection — common skills
+        Set<String> common = new HashSet<>(jd1Skills);
+        common.retainAll(jd2Skills);
+        System.out.println("Common skills: " + common);
+        // [docker, java]
+
+        // Union — all unique skills
+        Set<String> all = new HashSet<>(jd1Skills);
+        all.addAll(jd2Skills);
+        System.out.println("All unique skills: " + all);
+
+        // Difference — in jd1 but not jd2
+        Set<String> onlyInJd1 = new HashSet<>(jd1Skills);
+        onlyInJd1.removeAll(jd2Skills);
+        System.out.println("Only in JD1: " + onlyInJd1);
+        // [mysql, spring boot]
+
+        // ── TreeSet — sorted set ──────────────────────
+        Set<String> sortedCompanies = new TreeSet<>(appliedCompanies);
+        System.out.println(sortedCompanies);
+        // [Google, Mastercard, Persistent]  ← alphabetical
+	}
+
+}

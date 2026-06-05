@@ -1,0 +1,16 @@
+package java_core_practice.day1.inheritance;
+
+public class MainInheritance {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Employee emp = new Employee(1,"shivani",800000);
+		emp.work();
+		
+		Manager mg = new Manager(1,"shivani",800000,"AI project");
+		mg.work();
+		mg.startProjects();
+	}
+
+}

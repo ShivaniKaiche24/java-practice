@@ -1,0 +1,10 @@
+package com.java_core_practice_day2_collection_framework;
+
+public class HashSetDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

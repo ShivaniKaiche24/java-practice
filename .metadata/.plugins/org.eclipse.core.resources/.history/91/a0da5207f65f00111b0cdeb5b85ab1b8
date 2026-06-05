@@ -1,0 +1,66 @@
+package day1;
+
+//GOOD — With encapsulation
+public class User {
+
+ // Step 1: Make fields private — hidden from outside
+ private String email;
+ private String password;
+ private int age;
+
+ // Step 2: Provide controlled access via getter/setter
+
+ // Getter — allows reading
+ public String getEmail() {
+     return email;
+ }
+
+ // Setter — allows writing WITH validation
+ public void setEmail(String email) {
+     // We can add rules here
+     if (email != null && email.contains("@")) {
+         this.email = email;
+     } else {
+         throw new IllegalArgumentException("Invalid email format");
+     }
+ }
+
+ public void setAge(int age) {
+     // Rule: age must be realistic
+     if (age >= 18 && age <= 100) {
+         this.age = age;
+     } else {
+         throw new IllegalArgumentException("Age must be between 18 and 100");
+     }
+ }
+
+ public int getAge() {
+     return age;
+ }
+
+ // Password — write only. Never expose via getter.
+ public void setPassword(String password) {
+     // In real apps, you would hash this
+     this.password = password;
+ }
+}
+
+
+
+
+
+public class Encapsulation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		  User user = new User();
+	        user.setEmail("shivani@gmail.com");  // Goes through validation
+	        user.setAge(24);                      // Goes through validation
+	        // user.password — COMPILE ERROR. Cannot access.
+	        
+	        System.out.println(user.getEmail()); // shivani@gmail.com
+	    
+	}
+
+}

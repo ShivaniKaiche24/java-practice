@@ -1,0 +1,59 @@
+package com.java_core_practice_day2_collection_framework;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ArrayListDemo {
+
+	public static void main(String[] args) {
+		//CREATE
+		
+		List<String> skills = new ArrayList<>();
+		
+		//ADD
+		skills.add("Java");
+		skills.add("Spring Boot");
+		skills.add("MySQL");
+		skills.add("React");
+		skills.add("Java");        //Duplicate is allowed in Arraylist
+		
+		System.out.print(skills + "\n");  // we are printing our Arraylist
+		// [Java, Spring Boot, MySQL, React, Java]
+		
+		// 1. Access by index - very fast
+		System.out.println(skills.get(0));
+		System.out.println(skills.get(3));
+		
+		// 2. Size
+		System.out.println(skills.size()); 
+		
+		// 3. Remove by index
+		skills.remove(4);  // Removes 2 "Java"
+		System.out.println(skills);
+		
+		// 4. Remove by Value
+		skills.remove("React"); // Removes "React" from skills
+		System.out.println(skills);
+		
+		// 5. Checks if exists 
+		System.out.println(skills.contains("Java"));  
+		System.out.println(skills.contains("Docker"));
+		
+		// 6. Loop for displaying Arraylist [Not hard coded]
+		 for(String skill : skills) {
+			 System.out.println("Skill: " + skill);
+		 }
+		
+		// 7. Sort
+		 Collections.sort(skills);
+		 System.out.println("Skills: "+skills);
+		 
+		 // 8 Convert Array to ArrayList
+		 String []arr =  {"Kafka","Docker","AWS"};
+		 List<String> fromArray = new ArrayList<>(List.of(arr));
+		 System.out.println(fromArray);
+
+	}
+
+}
